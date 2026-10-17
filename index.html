@@ -67,10 +67,3 @@ const fb=document.getElementById('fallbackOrder');if(fb)fb.value=order;document.
 });
 </script>
 </body></html>
-ar();
-document.querySelectorAll('[data-service]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('service').value=a.dataset.service;});});
-document.getElementById('orderForm').addEventListener('submit',async function(e){e.preventDefault();const f=new FormData(e.currentTarget);const msg=['📩 ĐƠN YÊU CẦU — KYRO STORE','Tên: '+f.get('customer'),'Discord: '+f.get('discordName'),'Dịch vụ: '+f.get('service'),'Ngân sách: '+f.get('budget'),'Thời gian mong muốn: '+(f.get('deadline')||'Chưa xác định'),'Mô tả: '+f.get('details')].join('
-');const n=document.getElementById('notice');n.style.display='block';n.textContent='';const text=document.createElement('textarea');text.readOnly=true;text.value=msg;text.style.cssText='width:100%;min-height:180px;margin-top:8px;padding:10px;background:#080d16;color:white;border:1px solid #34445e;border-radius:8px';n.append('Nội dung đơn hàng (hãy sao chép và gửi vào ticket Discord):
-');n.append(text);text.focus();text.select();try{await navigator.clipboard.writeText(msg);n.firstChild.textContent='Đã sao chép đơn hàng. Hãy dán nội dung này vào ticket Discord:
-';}catch(err){}window.open('https://discord.gg/k3fPJCCesZ','_blank','noopener');});
-</script></body></html>
